@@ -1,0 +1,29 @@
+Character related notes:
+---------------------------------
+Going without eating will reduce endurance / freshness
+Lack of sleep will reduce freshness
+Extreme lack of any stat will reduce health
+
+Game related notes:
+---------------------------------
+Event timer slowly increases based on time passage and *other hidden stats*
+Certain actions or events decrease event timer
+Other actions or events increase event timer
+Event generated from probability using even timer level
+ - Higher rolls will be more critical and devastating events
+ 
+Galactic News / Lore notes:
+---------------------------------
+History proceduraly generated from historical stats to make new history
+Player recieves news reports and mission orders based on History
+History affected by character decisions and events
+Factions change and grow / shrink based on actions and events
+
+SPESS notes:
+---------------------------------
+Planets and their details will be proceduraly generated
+
+TODO:
+---------------------------------
+Generate galaxy and save to file
+Generate history and alter galaxy accordingly
