@@ -83,7 +83,7 @@ class Pathing:
                     continue
 
                 #Check that terrain is walkable
-                if self.maze[node_position[0]][node_position[1]] != 0:
+                if (self.maze[node_position[0]][node_position[1]] == 1) or (self.maze[node_position[0]][node_position[1]] == 0):
                     continue
 
                 #Create new node
@@ -111,6 +111,7 @@ class Pathing:
 
                 #Add child to the yetToVisitList
                 yetToVisitList.append(child)
+				
 
     def returnPath(self, current_node):
         #initialize empty path

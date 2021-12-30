@@ -1,21 +1,78 @@
 #Imports
 import pygame
-from player import Player
+from pygame.locals import *
+import person
+import random
+from AI import Pathing
 from galaxy import Galaxy
-pygame.init()
+from config import *
+from sprites import *
+import sys
 
-BLACK = (0,0,0)
-WHITE = (255,255,255)
-GREEN = (0,255,0)
-RED = (255,0,0)
-BLUE = (0,0,255)
+class Game:
+	def __init__(self):
+		pygame.init()
+		self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+		self.clock = pygame.time.Clock()
+		self.running = True
+		pygame.display.set_caption("Interstellar Voyage")
+		
+	def new(self):
+		#Start a new game
+		self.playing = True
+		
+		self.all_sprites = pygame.sprite.LayeredUpdates()
+		self.blocks = pygame.sprite.LayeredUpdates()
+		self.enemies = pygame.sprite.LayeredUpdates()
+		self.attacks = pygame.sprite.LayeredUpdates()
+		
+		self.player = Player(self, 1, 2)
+		
+	def events(self):
+		#Game loop events
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				self.playing = False
+				self.running = False
+				
+	def update(self):
+		#Game loop updates
+		self.all_sprites.update()
+		
+	def draw(self):
+		#Game loop draw
+		self.screen.fill(BLACK)
+		self.all_sprites.draw(self.screen))
+		self.clock.tick(FPS)
+		pygame.display.update()
+		
+	def main(self):
+		#Game loop itself
+		while self.playing:
+			self.events()
+			self.update()
+			self.draw()
+		self.running = False
+		
+	def game_over(self):
+		pass
+	
+	def intro_screen(self):
+		pass
+		
+g = Game()
+g.intro_screen(
+g.new()
+while g.running:
+	g.main()
+	g.game_over()
+	
+pygame.quit()
+sys.exit()
 
-SCREENWIDTH = 1920
-SCREENHEIGHT = 1072
 
-size = (SCREENWIDTH,SCREENHEIGHT)
-screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Interstellar Voyage")
+#---------------------------------------------------
+
 
 #List containing all sprites to render
 all_sprites_list = pygame.sprite.Group()
@@ -26,7 +83,6 @@ playerPlayer.rect.y = (SCREENHEIGHT/2) - 64
 
 all_sprites_list.add(playerPlayer)
 
-clock = pygame.time.Clock()
 carryOn = True
 bStarSelected = False
 mouseClick = False
